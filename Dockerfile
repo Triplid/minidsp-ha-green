@@ -1,9 +1,17 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:latest
 FROM ${BUILD_FROM}
 
-# Устанавливаем Flask через системный пакетный менеджер
-RUN apk add --no-cache python3 py3-flask
+# Установка Python и создание виртуального окружения
+RUN apk add --no-cache python3 py3-pip \
+    && python3 -m venv /opt/venv
 
+# Копируем requirements.txt
+COPY requirements.txt /tmp/requirements.txt
+
+# Устанавливаем зависимости в виртуальное окружение
+RUN /opt/venv/bin/pip install --no-cache-dir -r /tmp/requirements.txt
+
+# Копируем остальные файлы
 COPY api.py /app/api.py
 COPY rootfs/ /
 WORKDIR /app
