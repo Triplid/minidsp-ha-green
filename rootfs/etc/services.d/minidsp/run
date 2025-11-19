@@ -1,0 +1,2 @@
+#!/command/with-contenv
+/opt/venv/bin/python /app/api.py
