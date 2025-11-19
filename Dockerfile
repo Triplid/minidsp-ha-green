@@ -5,13 +5,13 @@ FROM ${BUILD_FROM}
 RUN apk add --no-cache python3 py3-pip \
     && python3 -m venv /opt/venv
 
-# Копируем requirements.txt (если есть) или устанавливаем Flask напрямую
+# Копируем requirements.txt
 COPY requirements.txt /tmp/requirements.txt
+
+# Устанавливаем зависимости в виртуальное окружение
 RUN /opt/venv/bin/pip install --no-cache-dir -r /tmp/requirements.txt
 
-# Или если у вас нет requirements.txt, установите Flask напрямую:
-# RUN /opt/venv/bin/pip install --no-cache-dir flask
-
+# Копируем остальные файлы
 COPY api.py /app/api.py
 COPY rootfs/ /
 WORKDIR /app
