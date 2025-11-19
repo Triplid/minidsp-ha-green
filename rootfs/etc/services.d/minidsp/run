@@ -1,2 +1,2 @@
 #!/command/with-contenv
-exec python3 /app/api.py
+exec /opt/venv/bin/python /app/api.py
