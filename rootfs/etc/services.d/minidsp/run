@@ -1,3 +1,2 @@
-#!/usr/bin/with-contenv bash
-source /opt/venv/bin/activate
-exec python /app/api.py
+#!/command/with-contenv
+exec /opt/venv/bin/python /app/api.py
