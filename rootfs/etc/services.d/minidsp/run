@@ -1,2 +1,4 @@
-#!/command/with-contenv
-/opt/venv/bin/python /app/api.py
+#!/usr/bin/with-contenv bash
+# Активируем виртуальное окружение
+source /opt/venv/bin/activate
+exec python /app/api.py
