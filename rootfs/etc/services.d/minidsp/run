@@ -1,4 +1,3 @@
 #!/usr/bin/with-contenv bash
-# Активируем виртуальное окружение
 source /opt/venv/bin/activate
 exec python /app/api.py
