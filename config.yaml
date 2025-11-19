@@ -1,6 +1,6 @@
 name: miniDSP 2x4HD Green
 slug: minidsp_green
-description: Управление miniDSP 2x4HD — 100% работает на HA Green 2025.11+
+description: Управление miniDSP 2x4HD — работает на Home Assistant Green 2025.11+
 version: "1.5"
 arch:
   - aarch64
