@@ -1,0 +1,12 @@
+name: miniDSP 2x4HD Green
+slug: minidsp_green
+description: Управление miniDSP 2x4HD — 100% работает на HA Green 2025.11+
+version: "1.5"
+arch:
+  - aarch64
+startup: application
+boot: auto
+ports:
+  8080/tcp: 8080
+options: {}
+schema: {}
