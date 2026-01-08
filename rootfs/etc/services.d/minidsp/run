@@ -1,2 +1,2 @@
-#!/command/with-contenv
+#!/usr/bin/with-contenv bashio
 exec /opt/venv/bin/python /app/api.py
