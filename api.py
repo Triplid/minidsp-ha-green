@@ -2,12 +2,10 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Статус миниДСП
 @app.route("/status", methods=["GET"])
 def status():
     return jsonify({"preset": "1", "input": "USB", "volume": "0 dB"})
 
-# Управление пресетом
 @app.route("/preset", methods=["GET", "POST"])
 def preset():
     if request.method == "GET":
@@ -15,7 +13,6 @@ def preset():
     p = (request.get_json(silent=True) or {}).get("preset", "1")
     return jsonify({"result": f"Preset set to {p}"})
 
-# Управление входом
 @app.route("/input", methods=["GET", "POST"])
 def input_route():
     if request.method == "GET":
