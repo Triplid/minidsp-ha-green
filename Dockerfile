@@ -5,13 +5,12 @@ FROM ${BUILD_FROM}
 RUN apk add --no-cache python3 py3-pip \
     && python3 -m venv /opt/venv
 
-# Копируем requirements
+# Копируем зависимости
 COPY requirements.txt /tmp/requirements.txt
 RUN /opt/venv/bin/pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Копируем приложение
 COPY api.py /app/api.py
-WORKDIR /app
+COPY rootfs/ /
 
-# Flask запускается как основной процесс
-CMD ["/opt/venv/bin/python3", "/app/api.py"]
+WORKDIR /app
